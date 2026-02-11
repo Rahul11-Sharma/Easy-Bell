@@ -1,0 +1,1723 @@
+{
+  "info": {
+    "_postman_id": "a4af4890-5a29-40a9-96d3-d2238ad32b5a",
+    "name": "Easy Bell",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34127316"
+  },
+  "item": [
+    {
+      "name": "contacts api",
+      "item": [
+        {
+          "name": "Get Contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/contacts",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Contact",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact_name\": \"Rahul Sharma\",\n  \"contact_email\": \"rahul@gmail.com\",\n  \"contact_type\": \"Customer\",\n  \"billing_address\": \"SG Highway\",\n  \"billing_address_city\": \"Ahmedabad\",\n  \"billing_address_state\": \"Gujarat\",\n  \"billing_address_country\": \"India\",\n  \"billing_address_pincode\": \"380015\",\n  \"shipping_address\": \"SG Highway\",\n  \"shipping_address_city\": \"Ahmedabad\",\n  \"shipping_address_state\": \"Gujarat\",\n  \"shipping_address_country\": \"India\",\n  \"shipping_address_pincode\": \"380015\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/contacts",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Contact",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/contacts/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact_name\": \"Rahul Sharma Update\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/contacts/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Contact",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/contacts/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "serach by customer type",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/contacts/search/type?contact_type=customer",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "search",
+                "type"
+              ],
+              "query": [
+                {
+                  "key": "contact_type",
+                  "value": "customer"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "serach by customer name",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/contacts/search/contact_name?contact_name=rahul sharma",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "search",
+                "contact_name"
+              ],
+              "query": [
+                {
+                  "key": "contact_name",
+                  "value": "rahul sharma"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Quotes api",
+      "item": [
+        {
+          "name": "Get quotes",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quotes",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get quotes",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "316"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"13c-f7uCv7FmCTRIyCN2AJU1QeOXKpg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 07:55:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_id\": 1,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": null,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 2,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 3,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Quotes",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quotes_number\": \"QT-001\",\n  \"quotes_status\": \"Draft\",\n  \"contact_id\": 2,\n  \"quote_total\": 15000.50\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/quotes",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Quotes",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quotes_number\": \"QT-001\",\n  \"quotes_status\": \"Draft\",\n  \"contact_id\": 2,\n  \"quote_total\": 15000.50\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/quotes",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-Gw37o554emBLJSQVDFBkjoN6exA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 07:55:12 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quote created successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Quote",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/contacts/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Quote",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "106"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"6a-fvYLZAF7ftj+/cpn4QVNPtm+fX0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 07:55:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"quote_id\": 1,\n    \"quotes_number\": \"QT-001\",\n    \"quotes_status\": \"Draft\",\n    \"contact_id\": null,\n    \"quote_total\": \"15000.50\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Quotes",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quotes_status\": \"Pending Approval\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/quotes/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Contacts",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quotes_status\": \"Pending Approval\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/quotes/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-Gx7m1hpmqjVRf77wpwWYpWLr9O0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 16:52:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quote updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Quotes",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quotes/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Quotes",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-e6ifnhieUmUjUwQJlzQDsuGPIbw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 16:54:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quote deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "serach by quotes number",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quotes/search/quote-number?quotes_number=QT-001",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes",
+                "search",
+                "quote-number"
+              ],
+              "query": [
+                {
+                  "key": "quotes_number",
+                  "value": "QT-001"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by quotes number",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes/search/quote-number?quotes_number=QT-001",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "search",
+                    "quote-number"
+                  ],
+                  "query": [
+                    {
+                      "key": "quotes_number",
+                      "value": "QT-001"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "313"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"139-kndFxOmLqew/9Fg3bF5sCkQj4bo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 17:12:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_id\": 2,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 3,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 4,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by quote status",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quotes/search/status?quotes_status=Draft",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes",
+                "search",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "quotes_status",
+                  "value": "Draft"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by quote status",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes/search/status?quotes_status=Draft",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "search",
+                    "status"
+                  ],
+                  "query": [
+                    {
+                      "key": "quotes_status",
+                      "value": "Draft"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "313"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"139-kndFxOmLqew/9Fg3bF5sCkQj4bo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 17:14:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_id\": 2,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 3,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 4,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach quote by contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quotes/search/contact?contact_id=2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quotes",
+                "search",
+                "contact"
+              ],
+              "query": [
+                {
+                  "key": "contact_id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach quote by contacts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes/search/contact?contact_id=2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "search",
+                    "contact"
+                  ],
+                  "query": [
+                    {
+                      "key": "contact_id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "313"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"139-kndFxOmLqew/9Fg3bF5sCkQj4bo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 17:19:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_id\": 2,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 3,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 4,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Items API",
+      "item": [
+        {
+          "name": "Get Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/items",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_name\": \"iPhone 15\",\n  \"item_cost_price\": \"65000\",\n  \"item_selling_price\": \"72000\",\n  \"item_sku\": \"APL-IP15-BLK\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/items",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Items",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item_name\": \"iPhone 15\",\n  \"item_cost_price\": \"65000\",\n  \"item_selling_price\": \"72000\",\n  \"item_sku\": \"APL-IP15-BLK\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/items",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "items"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "38"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"26-GzW9Uoj9ihUwysuVrwwsf6sVTmM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 06:49:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Item created\",\n    \"item_id\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Item",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/items/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "items",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "118"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"76-YhHRgV2oq4KdZBe8qfMyCxPZBqE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 06:49:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"item_id\": 1,\n    \"item_name\": \"iPhone 15\",\n    \"item_cost_price\": \"65000\",\n    \"item_selling_price\": \"72000\",\n    \"item_sku\": \"APL-IP15-BLK\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Item",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item_name\": \"iPhone 13\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Contacts",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item_name\": \"iPhone 13\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/items/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "items",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-/mXUdB+eh8jtQg53ebmiGBe7mtQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 06:56:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Items updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Contact",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/items/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "items",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "26"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1a-XGLLoH+vBCql3HTO7bjujBPplDg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 06:57:05 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Item deleted\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "serach by  item name",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/items/search/item_name?item_name=iPhone 15",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items",
+                "search",
+                "item_name"
+              ],
+              "query": [
+                {
+                  "key": "item_name",
+                  "value": "iPhone 15"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by  item name",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/items/search/item_name?item_name=iPhone 15",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "items",
+                    "search",
+                    "item_name"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_name",
+                      "value": "iPhone 15"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "120"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"78-qoGxS5NVVQ3kTuCFoKIO4hnwz9A\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 07:19:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"item_id\": 2,\n        \"item_name\": \"iPhone 15\",\n        \"item_cost_price\": \"65000\",\n        \"item_selling_price\": \"72000\",\n        \"item_sku\": \"APL-IP15-BLK\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by item sku",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/items/search/item_sku?item_sku=APL-IP15-BLK",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "items",
+                "search",
+                "item_sku"
+              ],
+              "query": [
+                {
+                  "key": "item_sku",
+                  "value": "APL-IP15-BLK"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by item sku",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/items/search/item_sku?item_sku=APL-IP15-BLK",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "items",
+                    "search",
+                    "item_sku"
+                  ],
+                  "query": [
+                    {
+                      "key": "item_sku",
+                      "value": "APL-IP15-BLK"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "120"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"78-qoGxS5NVVQ3kTuCFoKIO4hnwz9A\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 07:21:57 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"item_id\": 2,\n        \"item_name\": \"iPhone 15\",\n        \"item_cost_price\": \"65000\",\n        \"item_selling_price\": \"72000\",\n        \"item_sku\": \"APL-IP15-BLK\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "users api",
+      "item": [
+        {
+          "name": "Get Contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/users",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Contact",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_name\": \"Rahul\",\n  \"user_email\": \"rahul@gmail.com\",\n  \"password\": \"123456\",\n  \"user_type\": \"Admin\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/users",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Contact",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/users/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_name\": \"Rahul Sharma\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/users/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Contact",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/users/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "units api",
+      "item": [
+        {
+          "name": "Get Contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/units",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "units"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Unit",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unit_name\": \"Kg\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/units",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "units"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Unit",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/units/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "units",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Contacts",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"unit_name\": \"Box\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/units/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "units",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Contact",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/units/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "units",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Login API",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_email\": \"rahul@gmail.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
