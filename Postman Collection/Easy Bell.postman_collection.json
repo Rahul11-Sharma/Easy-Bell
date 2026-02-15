@@ -878,6 +878,656 @@
       ]
     },
     {
+      "name": "Quotes  Items api",
+      "item": [
+        {
+          "name": "Get quote Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quote_items",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get quotes",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "316"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"13c-f7uCv7FmCTRIyCN2AJU1QeOXKpg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 07:55:24 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_id\": 1,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": null,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 2,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    },\n    {\n        \"quote_id\": 3,\n        \"quotes_number\": \"QT-001\",\n        \"quotes_status\": \"Draft\",\n        \"contact_id\": 2,\n        \"quote_total\": \"15000.50\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Quotes Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"qutoe_item_unit\": 1,\n  \"quote_item_quantity\": 5,\n  \"quote_item_rate\": 200,\n  \"quote_id\": 2,\n  \"quote_item_id\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/quote_items",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Quotes Items",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quote_item_name\": \"Product A\",\n  \"qutoe_item_unit\": 1,\n  \"quote_item_quantity\": 10,\n  \"quote_item_rate\": 100,\n  \"quote_item_total\": 1000,\n  \"quote_id\": 1\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/quote_items",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quote_items"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "63"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3f-5rGqaZw83b9I41uUcKRVQJ0l7bw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 14 Feb 2026 17:33:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": false,\n    \"message\": \"Invalid quote_id. Quote not found.\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Quote Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quote_items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Quote Items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quote_items/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quote_items",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "153"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"99-RKyLpnXa3Gof/Wd/fIWWr28Srb8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 14 Feb 2026 17:43:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"quote_item_id\": 1,\n    \"quote_item_name\": \"Product A\",\n    \"qutoe_item_unit\": 1,\n    \"quote_item_quantity\": 10,\n    \"quote_item_rate\": 100,\n    \"quote_item_total\": 1000,\n    \"quote_id\": 2\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Quotes Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quote_item_name\": \"Product B\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/quote_items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Quotes Items",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quote_item_name\": \"Product B\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/quote_items/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quote_items",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "32"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"20-7x7KkseDMZKryQ20Iw9dxwjL7R8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 14 Feb 2026 17:47:10 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quote Item Updated\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Quotes Items",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quote_items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Quotes",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quotes/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quotes",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-e6ifnhieUmUjUwQJlzQDsuGPIbw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 08 Feb 2026 16:54:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Quote deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "serach by quotes id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quote_items/search/quote_id/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items",
+                "search",
+                "quote_id",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by quotes id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quote_items/search/quote_id/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quote_items",
+                    "search",
+                    "quote_id",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "148"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94-hSjJOJHoa8HXFtJgboBZZ4+Ze1o\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 15 Feb 2026 14:54:26 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_line_item_id\": 2,\n        \"qutoe_item_unit\": 2,\n        \"quote_item_quantity\": 10,\n        \"quote_item_rate\": 200,\n        \"quote_item_total\": 2000,\n        \"quote_id\": 2,\n        \"quote_item_id\": 2\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by item id",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quote_items/search/quote_item_id/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items",
+                "search",
+                "quote_item_id",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by item id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quote_items/search/quote_item_id/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quote_items",
+                    "search",
+                    "quote_item_id",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "148"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94-hSjJOJHoa8HXFtJgboBZZ4+Ze1o\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 15 Feb 2026 15:01:41 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_line_item_id\": 2,\n        \"qutoe_item_unit\": 2,\n        \"quote_item_quantity\": 10,\n        \"quote_item_rate\": 200,\n        \"quote_item_total\": 2000,\n        \"quote_id\": 2,\n        \"quote_item_id\": 2\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by unit",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/quote_items/search/unit/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "quote_items",
+                "search",
+                "unit",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by unit",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/quote_items/search/unit/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "quote_items",
+                    "search",
+                    "unit",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "148"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"94-hSjJOJHoa8HXFtJgboBZZ4+Ze1o\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 15 Feb 2026 15:04:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"quote_line_item_id\": 2,\n        \"qutoe_item_unit\": 2,\n        \"quote_item_quantity\": 10,\n        \"quote_item_rate\": 200,\n        \"quote_item_total\": 2000,\n        \"quote_id\": 2,\n        \"quote_item_id\": 2\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Items API",
       "item": [
         {
@@ -1550,7 +2200,7 @@
       "name": "units api",
       "item": [
         {
-          "name": "Get Contacts",
+          "name": "Get Units",
           "request": {
             "auth": {
               "type": "noauth"

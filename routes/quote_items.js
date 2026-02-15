@@ -246,6 +246,7 @@ router.delete('/:id', (req, res) => {
 });
 
 router.get('/search/quote_id/:quote_id', (req, res) => {
+   console.log(req.params.quote_id);
   db.query(
       "SELECT * FROM quote_items WHERE quote_id = ?",
       [req.params.quote_id],
@@ -256,10 +257,10 @@ router.get('/search/quote_id/:quote_id', (req, res) => {
   );
 });
 
-router.get('/search/name/:name', (req, res) => {
+router.get('/search/quote_item_id/:item_id', (req, res) => {
   db.query(
-      "SELECT * FROM quote_items WHERE quote_item_name LIKE ?",
-      [`%${req.params.name}%`],
+      "SELECT * FROM quote_items WHERE quote_item_id = ?",
+      [req.params.item_id],
       (err, result) => {
           if (err) return res.status(500).json(err);
           res.json(result);
