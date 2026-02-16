@@ -8,6 +8,7 @@ const unitRoutes = require('./routes/units');
 const itemsRoutes = require('./routes/items');
 const quotesRoutes = require('./routes/quotes');
 const quoteItemsRoutes = require('./routes/quote_items');
+const piRoutes = require('./routes/pi');
 
 
 const app = express();
@@ -22,6 +23,7 @@ app.use('/units', unitRoutes);
 app.use('/items', itemsRoutes);
 app.use('/quotes', quotesRoutes);
 app.use('/quote_items', quoteItemsRoutes);
+app.use('/pi', piRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
