@@ -192,6 +192,734 @@
       ]
     },
     {
+      "name": "Invoice api",
+      "item": [
+        {
+          "name": "Get Invoices",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Invoices",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "247"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f7-5l6jyeiVZUon+/APOUCJR6t2YS4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:09:30 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_id\": 1,\n        \"pi_id\": 3,\n        \"invoice_number\": \"INV-001\",\n        \"invoice_status\": \"Pending\",\n        \"contact_id\": 2,\n        \"invoice_total\": \"25000.00\"\n    },\n    {\n        \"invoice_id\": 2,\n        \"pi_id\": 3,\n        \"invoice_number\": \"INV-002\",\n        \"invoice_status\": \"Pending\",\n        \"contact_id\": 2,\n        \"invoice_total\": \"25000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Invoice",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pi_id\": 3,\n  \"invoice_number\": \"INV-002\",\n  \"invoice_status\": \"Pending\",\n  \"contact_id\": 2,\n  \"invoice_total\": 25000.00\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/invoices",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Invoice",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pi_id\": 3,\n  \"invoice_number\": \"INV-002\",\n  \"invoice_status\": \"Pending\",\n  \"contact_id\": 2,\n  \"invoice_total\": 25000.00\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/invoices",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"38-U+XmUUw9CCEdEATfNYLlW1guiTA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:09:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Invoice created successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Invoice",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Contact",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "122"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7a-NR3PiYurI8LjJeH930tnRIi7Knk\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:11:16 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"invoice_id\": 2,\n    \"pi_id\": 3,\n    \"invoice_number\": \"INV-002\",\n    \"invoice_status\": \"Pending\",\n    \"contact_id\": 2,\n    \"invoice_total\": \"25000.00\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Invoices",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_status\": \"Approved\",\n  \"invoice_total\": 30000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/invoices/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Invoices",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_status\": \"Approved\",\n  \"invoice_total\": 30000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/invoices/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "42"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2a-Z3C9kwlec0Nzx9REl9bnZhpFtUo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:14:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Invoice updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Invoice",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Invoice",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "56"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"38-aBltBsy94ZoiQD16Y5JT6nyEFVE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:16:20 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Invoice deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "serach by customer",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices/search/contact/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "search",
+                "contact",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by customer type",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices/search/contact/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "search",
+                    "contact",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7d-LjeHdrnXCaP88wk+cyYUBy2F7ms\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:18:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_id\": 1,\n        \"pi_id\": 3,\n        \"invoice_number\": \"INV-001\",\n        \"invoice_status\": \"Approved\",\n        \"contact_id\": 2,\n        \"invoice_total\": \"30000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by pi",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices/search/pi/3",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "search",
+                "pi",
+                "3"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by pi",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices/search/pi/3",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "search",
+                    "pi",
+                    "3"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7d-LjeHdrnXCaP88wk+cyYUBy2F7ms\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:24:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_id\": 1,\n        \"pi_id\": 3,\n        \"invoice_number\": \"INV-001\",\n        \"invoice_status\": \"Approved\",\n        \"contact_id\": 2,\n        \"invoice_total\": \"30000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by invoice number",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices/search/number/Inv-001",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "search",
+                "number",
+                "Inv-001"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by invoice number",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices/search/number/Inv-001",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "search",
+                    "number",
+                    "Inv-001"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7d-LjeHdrnXCaP88wk+cyYUBy2F7ms\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:26:58 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_id\": 1,\n        \"pi_id\": 3,\n        \"invoice_number\": \"INV-001\",\n        \"invoice_status\": \"Approved\",\n        \"contact_id\": 2,\n        \"invoice_total\": \"30000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by invoice status",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoices/search/status/Approved",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoices",
+                "search",
+                "status",
+                "Approved"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by invoice status",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoices/search/status/Approved",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoices",
+                    "search",
+                    "status",
+                    "Approved"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "125"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7d-LjeHdrnXCaP88wk+cyYUBy2F7ms\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 16:29:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_id\": 1,\n        \"pi_id\": 3,\n        \"invoice_number\": \"INV-001\",\n        \"invoice_status\": \"Approved\",\n        \"contact_id\": 2,\n        \"invoice_total\": \"30000.00\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Pi Items",
       "item": [
         {

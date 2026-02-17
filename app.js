@@ -10,6 +10,7 @@ const quotesRoutes = require('./routes/quotes');
 const quoteItemsRoutes = require('./routes/quote_items');
 const piRoutes = require('./routes/pi');
 const piItemsRoutes = require('./routes/pi_items');
+const invoicesRoutes = require('./routes/invoices');
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use('/quotes', quotesRoutes);
 app.use('/quote_items', quoteItemsRoutes);
 app.use('/pi', piRoutes);
 app.use('/pi_items', piItemsRoutes);
+app.use('/invoices', invoicesRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
