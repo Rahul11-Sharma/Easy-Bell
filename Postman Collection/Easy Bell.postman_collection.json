@@ -192,6 +192,656 @@
       ]
     },
     {
+      "name": "Invoice Items",
+      "item": [
+        {
+          "name": "Get Invoice Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoice_items",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Invoice Items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "323"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"143-4s2TnUjQiJrdu/d7RodvkqIS3VA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:07:01 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_line_item_id\": 1,\n        \"invoice_item_id\": 2,\n        \"invoice_item_unit\": 2,\n        \"invoice_item_quantity\": 10,\n        \"invoice_item_rate\": 500,\n        \"invoice_item_total\": 5000,\n        \"invoice_id\": 1\n    },\n    {\n        \"invoice_line_item_id\": 2,\n        \"invoice_item_id\": 2,\n        \"invoice_item_unit\": 2,\n        \"invoice_item_quantity\": 10,\n        \"invoice_item_rate\": 500,\n        \"invoice_item_total\": 5000,\n        \"invoice_id\": 1\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Invoice Item",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_id\": 1,\n  \"invoice_item_id\": 2,\n  \"invoice_item_unit\": 2,\n  \"invoice_item_quantity\": 10,\n  \"invoice_item_rate\": 500,\n  \"invoice_item_total\": 5000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/invoice_items",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Invoice Item",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_id\": 1,\n  \"invoice_item_id\": 2,\n  \"invoice_item_unit\": 2,\n  \"invoice_item_quantity\": 10,\n  \"invoice_item_rate\": 500,\n  \"invoice_item_total\": 5000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "61"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3d-4Fm/lu8SXJlityt53EqSmXYHcvE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:06:35 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Invoice item created successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Invoice items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoice_items/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Invoice items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "160"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a0-Z+r9qvzQm7+v+8chfW0fERubTPU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:07:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"invoice_line_item_id\": 2,\n    \"invoice_item_id\": 2,\n    \"invoice_item_unit\": 2,\n    \"invoice_item_quantity\": 10,\n    \"invoice_item_rate\": 500,\n    \"invoice_item_total\": 5000,\n    \"invoice_id\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Invoice Items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"invoice_item_quantity\": 20,\n  \"invoice_item_rate\": 600,\n  \"invoice_item_total\": 12000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/invoice_items/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Invoice Items",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"invoice_item_quantity\": 20,\n  \"invoice_item_rate\": 600,\n  \"invoice_item_total\": 12000\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "47"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2f-Snx5Vm8B5HGPpNy0J2wtDA8EI0I\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:09:49 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Invoice item updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Contact",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoice_items/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Contact",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "61"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3d-mbqaReG/aAOjWC7h0lfu8bz88Mg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:10:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Invoice item deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "serach by invoice",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoice_items/search/invoice/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items",
+                "search",
+                "invoice",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by invoice",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items/search/invoice/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items",
+                    "search",
+                    "invoice",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "163"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a3-mxPJQxAKAzoD+GjbNBH+kuB60mo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:12:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_line_item_id\": 1,\n        \"invoice_item_id\": 2,\n        \"invoice_item_unit\": 2,\n        \"invoice_item_quantity\": 20,\n        \"invoice_item_rate\": 600,\n        \"invoice_item_total\": 12000,\n        \"invoice_id\": 1\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by invoice items",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoice_items/search/item/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items",
+                "search",
+                "item",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by invoice items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items/search/item/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items",
+                    "search",
+                    "item",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "163"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a3-mxPJQxAKAzoD+GjbNBH+kuB60mo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:13:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_line_item_id\": 1,\n        \"invoice_item_id\": 2,\n        \"invoice_item_unit\": 2,\n        \"invoice_item_quantity\": 20,\n        \"invoice_item_rate\": 600,\n        \"invoice_item_total\": 12000,\n        \"invoice_id\": 1\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by unit",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/invoice_items/search/unit/2",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "invoice_items",
+                "search",
+                "unit",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by unit",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/invoice_items/search/unit/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "invoice_items",
+                    "search",
+                    "unit",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "163"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a3-mxPJQxAKAzoD+GjbNBH+kuB60mo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 17 Feb 2026 17:14:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"invoice_line_item_id\": 1,\n        \"invoice_item_id\": 2,\n        \"invoice_item_unit\": 2,\n        \"invoice_item_quantity\": 20,\n        \"invoice_item_rate\": 600,\n        \"invoice_item_total\": 12000,\n        \"invoice_id\": 1\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Invoice api",
       "item": [
         {
