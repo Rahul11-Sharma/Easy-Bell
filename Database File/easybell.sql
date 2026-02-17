@@ -21,7 +21,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 -- GTID state at the beginning of the backup 
 --
 
-SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'e6d911ce-ff40-11f0-8e1d-44ad96e7c62a:1-51';
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'e6d911ce-ff40-11f0-8e1d-44ad96e7c62a:1-89';
 
 --
 -- Table structure for table `contacts`
@@ -67,19 +67,22 @@ DROP TABLE IF EXISTS `invoice_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `invoice_items` (
-  `invoice_item_id` int NOT NULL AUTO_INCREMENT,
-  `invoice_item_name` varchar(100) DEFAULT NULL,
+  `invoice_line_item_id` int NOT NULL AUTO_INCREMENT,
+  `invoice_item_id` int DEFAULT NULL,
   `invoice_item_unit` int DEFAULT NULL,
   `invoice_item_quantity` int DEFAULT NULL,
   `invoice_item_rate` int DEFAULT NULL,
   `invoice_item_total` int DEFAULT NULL,
   `invoice_id` int NOT NULL,
-  PRIMARY KEY (`invoice_item_id`),
+  PRIMARY KEY (`invoice_line_item_id`),
   KEY `fk_invoice_items_invoice` (`invoice_id`),
-  KEY `fk_invoice_items_unit` (`invoice_item_unit`),
+  KEY `fk_invoice_item` (`invoice_item_id`),
+  KEY `fk_invoice_unit` (`invoice_item_unit`),
+  CONSTRAINT `fk_invoice_item` FOREIGN KEY (`invoice_item_id`) REFERENCES `items` (`item_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_invoice_items_invoice` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`invoice_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_invoice_items_unit` FOREIGN KEY (`invoice_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `fk_invoice_items_unit` FOREIGN KEY (`invoice_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_invoice_unit` FOREIGN KEY (`invoice_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,6 +91,7 @@ CREATE TABLE `invoice_items` (
 
 LOCK TABLES `invoice_items` WRITE;
 /*!40000 ALTER TABLE `invoice_items` DISABLE KEYS */;
+INSERT INTO `invoice_items` VALUES (1,2,2,20,600,12000,1);
 /*!40000 ALTER TABLE `invoice_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +114,7 @@ CREATE TABLE `invoices` (
   KEY `fk_invoice_pi` (`pi_id`),
   CONSTRAINT `fk_invoice_contact` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`contact_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_invoice_pi` FOREIGN KEY (`pi_id`) REFERENCES `pi` (`pi_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +123,7 @@ CREATE TABLE `invoices` (
 
 LOCK TABLES `invoices` WRITE;
 /*!40000 ALTER TABLE `invoices` DISABLE KEYS */;
+INSERT INTO `invoices` VALUES (1,3,'INV-001','Approved',2,30000.00);
 /*!40000 ALTER TABLE `invoices` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +173,7 @@ CREATE TABLE `pi` (
   KEY `fk_pi_contact` (`contact_id`),
   CONSTRAINT `fk_pi_contact` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`contact_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_quote_pi` FOREIGN KEY (`quote_id`) REFERENCES `quotes` (`quote_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,6 +182,7 @@ CREATE TABLE `pi` (
 
 LOCK TABLES `pi` WRITE;
 /*!40000 ALTER TABLE `pi` DISABLE KEYS */;
+INSERT INTO `pi` VALUES (2,2,'PI-001','Pending',25000.00,2),(3,2,'PI-001','Pending',25000.00,2);
 /*!40000 ALTER TABLE `pi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,19 +194,22 @@ DROP TABLE IF EXISTS `pi_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pi_items` (
-  `pi_item_id` int NOT NULL AUTO_INCREMENT,
-  `pi_item_name` varchar(100) DEFAULT NULL,
+  `pi_line_item_id` int NOT NULL AUTO_INCREMENT,
+  `pi_item_id` int DEFAULT NULL,
   `pi_item_unit` int DEFAULT NULL,
   `pi_item_quantity` int DEFAULT NULL,
   `pi_item_rate` int DEFAULT NULL,
   `pi_item_total` int DEFAULT NULL,
   `pi_id` int NOT NULL,
-  PRIMARY KEY (`pi_item_id`),
+  PRIMARY KEY (`pi_line_item_id`),
   KEY `fk_pi_items_pi` (`pi_id`),
-  KEY `fk_pi_items_unit` (`pi_item_unit`),
+  KEY `fk_pi_item` (`pi_item_id`),
+  KEY `fk_pi_unit` (`pi_item_unit`),
+  CONSTRAINT `fk_pi_item` FOREIGN KEY (`pi_item_id`) REFERENCES `items` (`item_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_pi_items_pi` FOREIGN KEY (`pi_id`) REFERENCES `PI` (`pi_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_pi_items_unit` FOREIGN KEY (`pi_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `fk_pi_items_unit` FOREIGN KEY (`pi_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_pi_unit` FOREIGN KEY (`pi_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,6 +218,7 @@ CREATE TABLE `pi_items` (
 
 LOCK TABLES `pi_items` WRITE;
 /*!40000 ALTER TABLE `pi_items` DISABLE KEYS */;
+INSERT INTO `pi_items` VALUES (1,2,2,10,500,5000,3);
 /*!40000 ALTER TABLE `pi_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,18 +230,22 @@ DROP TABLE IF EXISTS `purchase_order_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `purchase_order_items` (
-  `purchase_order_item_id` int NOT NULL AUTO_INCREMENT,
-  `purchase_order_item_name` varchar(100) DEFAULT NULL,
+  `purchase_order_line_item_id` int NOT NULL AUTO_INCREMENT,
+  `purchase_order_item_id` int DEFAULT NULL,
   `purchase_order_item_unit` int DEFAULT NULL,
   `purchase_order_item_quantity` int DEFAULT NULL,
   `purchase_order_item_rate` int DEFAULT NULL,
   `purchase_order_item_total` int DEFAULT NULL,
   `purchase_order_id` int NOT NULL,
-  PRIMARY KEY (`purchase_order_item_id`),
+  PRIMARY KEY (`purchase_order_line_item_id`),
   KEY `fk_po_items_po` (`purchase_order_id`),
   KEY `fk_po_items_unit` (`purchase_order_item_quantity`),
+  KEY `fk_po_item` (`purchase_order_item_id`),
+  KEY `fk_po_unit` (`purchase_order_item_unit`),
+  CONSTRAINT `fk_po_item` FOREIGN KEY (`purchase_order_item_id`) REFERENCES `items` (`item_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_po_items_po` FOREIGN KEY (`purchase_order_id`) REFERENCES `purchase_orders` (`purchase_order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_po_items_unit` FOREIGN KEY (`purchase_order_item_quantity`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_po_items_unit` FOREIGN KEY (`purchase_order_item_quantity`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_po_unit` FOREIGN KEY (`purchase_order_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -283,17 +297,21 @@ DROP TABLE IF EXISTS `quote_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `quote_items` (
-  `quote_item_id` int NOT NULL AUTO_INCREMENT,
-  `quote_item_name` varchar(100) DEFAULT NULL,
+  `quote_line_item_id` int NOT NULL AUTO_INCREMENT,
   `qutoe_item_unit` int DEFAULT NULL,
   `quote_item_quantity` int DEFAULT NULL,
   `quote_item_rate` int DEFAULT NULL,
   `quote_item_total` int DEFAULT NULL,
   `quote_id` int DEFAULT NULL,
-  PRIMARY KEY (`quote_item_id`),
+  `quote_item_id` int DEFAULT NULL,
+  PRIMARY KEY (`quote_line_item_id`),
   KEY `fk_quote_items_quote` (`quote_id`),
-  CONSTRAINT `fk_quote_items_quote` FOREIGN KEY (`quote_id`) REFERENCES `quotes` (`quote_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_quote_item` (`quote_item_id`),
+  KEY `fk_quote_unit` (`qutoe_item_unit`),
+  CONSTRAINT `fk_quote_item` FOREIGN KEY (`quote_item_id`) REFERENCES `items` (`item_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `fk_quote_items_quote` FOREIGN KEY (`quote_id`) REFERENCES `quotes` (`quote_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_quote_unit` FOREIGN KEY (`qutoe_item_unit`) REFERENCES `units` (`unit_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,6 +320,7 @@ CREATE TABLE `quote_items` (
 
 LOCK TABLES `quote_items` WRITE;
 /*!40000 ALTER TABLE `quote_items` DISABLE KEYS */;
+INSERT INTO `quote_items` VALUES (2,2,10,200,2000,2,2);
 /*!40000 ALTER TABLE `quote_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,4 +414,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-11 22:09:19
+-- Dump completed on 2026-02-17 22:58:29
