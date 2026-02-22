@@ -11,7 +11,8 @@ const quoteItemsRoutes = require('./routes/quote_items');
 const piRoutes = require('./routes/pi');
 const piItemsRoutes = require('./routes/pi_items');
 const invoicesRoutes = require('./routes/invoices');
-const invoiceItemRoutes = require('./routes/invoice_items');
+const invoiceItemRoutes = require('./routes/invoices');
+const poItemRoutes = require('./routes/purchase_order');
 
 
 const app = express();
@@ -30,6 +31,7 @@ app.use('/pi', piRoutes);
 app.use('/pi_items', piItemsRoutes);
 app.use('/invoices', invoicesRoutes);
 app.use('/invoice_items', invoiceItemRoutes);
+app.use('/purchase_order', poItemRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

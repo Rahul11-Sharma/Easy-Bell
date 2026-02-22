@@ -192,6 +192,525 @@
       ]
     },
     {
+      "name": "purchase order api",
+      "item": [
+        {
+          "name": "Get Purchase Order",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/purchase_order",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "purchase_order"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Purchase Order",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/purchase_order",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "purchase_order"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "152"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"98-ooW8MSyogaV7s9mdK+BWjrhcIxI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 22 Feb 2026 05:20:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"purchase_order_id\": 1,\n        \"pi_id\": 2,\n        \"purchase_order_number\": \"PO-1001\",\n        \"purchase_order_status\": \"Approved\",\n        \"vendor_id\": 5,\n        \"purchase_order_total\": \"25000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Purchase Order",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pi_id\": 2,\n  \"purchase_order_number\": \"PO-1001\",\n  \"purchase_order_status\": \"Pending\",\n  \"vendor_id\": 10,\n  \"purchase_order_total\": 25000.00\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/purchase_order",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "purchase_order"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Purchase Order",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pi_id\": 2,\n  \"purchase_order_number\": \"PO-1002\",\n  \"purchase_order_status\": \"Pending\",\n  \"vendor_id\": 2,\n  \"purchase_order_total\": 25000.00\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/purchase_order",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "purchase_order"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "43"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2b-tR29KMqYxVGmh6AC+oMPcpgAdss\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 22 Feb 2026 05:22:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Purchase Order Created\",\n    \"id\": 2\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Single Purchase Order",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/purchase_order/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "purchase_order",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Single Purchase Order",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/purchase_order/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "purchase_order",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "151"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"97-H/TUKXk7LrSmB2NqAYFIUlhsEYg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 21 Feb 2026 05:15:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"purchase_order_id\": 1,\n        \"pi_id\": 2,\n        \"purchase_order_number\": \"PO-1001\",\n        \"purchase_order_status\": \"Pending\",\n        \"vendor_id\": 5,\n        \"purchase_order_total\": \"25000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update Purchase Order",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"purchase_order_status\": \"Approved\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/contacts/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "contacts",
+                "1"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Purchase Order",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"pi_id\": 2\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/purchase_order/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "purchase_order",
+                    "1"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "63"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3f-tqsQGiEQ0EmVOGLn0LaJDyr033Y\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 22 Feb 2026 05:24:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"status\": true,\n    \"message\": \"Purchase Order updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Purchase Order",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/purchase_order/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "purchase_order",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "serach by purchase order number",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/purchase_order/search/number/PO-1001",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "purchase_order",
+                "search",
+                "number",
+                "PO-1001"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by purchase order number",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/purchase_order/search/number/PO-1001",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "purchase_order",
+                    "search",
+                    "number",
+                    "PO-1001"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "152"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"98-ooW8MSyogaV7s9mdK+BWjrhcIxI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 21 Feb 2026 05:34:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"purchase_order_id\": 1,\n        \"pi_id\": 2,\n        \"purchase_order_number\": \"PO-1001\",\n        \"purchase_order_status\": \"Approved\",\n        \"vendor_id\": 5,\n        \"purchase_order_total\": \"25000.00\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "serach by po status",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/purchase_order/search/status/Approved",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "purchase_order",
+                "search",
+                "status",
+                "Approved"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "serach by po status",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/purchase_order/search/status/Approved",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "purchase_order",
+                    "search",
+                    "status",
+                    "Approved"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "152"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"98-ooW8MSyogaV7s9mdK+BWjrhcIxI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 21 Feb 2026 05:36:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"purchase_order_id\": 1,\n        \"pi_id\": 2,\n        \"purchase_order_number\": \"PO-1001\",\n        \"purchase_order_status\": \"Approved\",\n        \"vendor_id\": 5,\n        \"purchase_order_total\": \"25000.00\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Invoice Items",
       "item": [
         {
