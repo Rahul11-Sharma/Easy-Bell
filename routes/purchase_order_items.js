@@ -153,41 +153,107 @@ router.get("/", (req, res) => {
     );
   });
 
-  router.put('/:id', (req, res) => {
-    const data = req.body;
+  router.put('/:id', async (req, res) => {
+    try {
+        const data = req.body;
+        const id = req.params.id;
 
-    if (!data || Object.keys(data).length === 0) {
-        return res.status(400).json({
-            message: "No fields provided to update"
-        });
-    }
-
-    let fields = [];
-    let values = [];
-
-    for (let key in data) {
-        fields.push(`${key} = ?`);
-        values.push(data[key]);
-    }
-
-    values.push(req.params.id);
-
-    const sql = `
-        UPDATE purchase_order_items
-        SET ${fields.join(', ')}
-        WHERE purchase_order_line_item_id = ?
-    `;
-
-    db.query(sql, values, (err, result) => {
-        if (err) {
-            return res.status(500).json({
-                message: "Update failed",
-                error: err
+        if (!data || Object.keys(data).length === 0) {
+            return res.status(400).json({
+                status: false,
+                message: "No fields provided to update"
             });
         }
 
-        res.json({ message: "Purchase Order item updated successfully" });
-    });
+        // ✅ Check if record exists
+        const [existing] = await db.promise().query(
+            "SELECT * FROM purchase_order_items WHERE purchase_order_line_item_id = ?",
+            [id]
+        );
+
+        if (existing.length === 0) {
+            return res.status(404).json({
+                status: false,
+                message: "Purchase Order Item not found"
+            });
+        }
+
+        // ✅ Validate purchase_order_id
+        if (data.purchase_order_id) {
+            const [poCheck] = await db.promise().query(
+                "SELECT purchase_order_id FROM purchase_orders WHERE purchase_order_id = ?",
+                [data.purchase_order_id]
+            );
+
+            if (poCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid purchase_order_id. Parent Purchase Order not found."
+                });
+            }
+        }
+
+        // ✅ Validate item_id
+        if (data.purchase_order_item_id) {
+            const [itemCheck] = await db.promise().query(
+                "SELECT item_id FROM items WHERE item_id = ?",
+                [data.purchase_order_item_id]
+            );
+
+            if (itemCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid purchase_order_item_id. Item not found."
+                });
+            }
+        }
+
+        // ✅ Validate unit_id
+        if (data.purchase_order_item_unit) {
+            const [unitCheck] = await db.promise().query(
+                "SELECT unit_id FROM units WHERE unit_id = ?",
+                [data.purchase_order_item_unit]
+            );
+
+            if (unitCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid purchase_order_item_unit. Unit not found."
+                });
+            }
+        }
+
+        // ✅ Build dynamic update query
+        let fields = [];
+        let values = [];
+
+        for (let key in data) {
+            fields.push(`${key} = ?`);
+            values.push(data[key]);
+        }
+
+        values.push(id);
+
+        const sql = `
+            UPDATE purchase_order_items
+            SET ${fields.join(', ')}
+            WHERE purchase_order_line_item_id = ?
+        `;
+
+        await db.promise().query(sql, values);
+
+        res.json({
+            status: true,
+            message: "Purchase Order item updated successfully"
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: false,
+            message: "Internal server error"
+        });
+    }
 });
 
 router.get('/search/purchase_order/:purchase_order_id', async (req, res) => {
