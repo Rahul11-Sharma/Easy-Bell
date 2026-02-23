@@ -45,10 +45,24 @@ router.get('/:id', (req, res) => {
 // ✅ UPDATE ITEM
 router.put('/:id', (req, res) => {
     const data = req.body;
+    const id = req.params.id;
 
     if (!data || Object.keys(data).length === 0) {
         return res.status(400).json({ message: 'No fields provided to update' });
     }
+
+    // ✅ Check if record exists
+    const [existing] = await db.promise().query(
+      "SELECT * FROM items WHERE item_id = ?",
+      [id]
+    );
+
+if (existing.length === 0) {
+  return res.status(404).json({
+      status: false,
+      message: "Purchase Order Item not found"
+  });
+}
 
     const fields = [];
     const values = [];
