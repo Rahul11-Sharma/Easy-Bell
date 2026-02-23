@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
 
 
 // ✅ UPDATE ITEM
-router.put('/:id', (req, res) => {
+router.put('/:id',async (req, res) => {
     const data = req.body;
     const id = req.params.id;
 
