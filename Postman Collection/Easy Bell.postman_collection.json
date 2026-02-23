@@ -27,7 +27,59 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Get Contacts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/contacts",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "2013"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"7dd-IwR12fAgz2gIKptYf9ScjuXFjSM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:15:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"contact_id\": 2,\n        \"contact_name\": \"Rahul Sharma Update\",\n        \"contact_email\": \"rahul@gmail.com\",\n        \"contact_type\": \"Customer\",\n        \"billing_address\": \"SG Highway\",\n        \"billing_address_city\": \"Ahmedabad\",\n        \"billing_address_state\": \"Gujarat\",\n        \"billing_address_country\": \"India\",\n        \"billing_address_pincode\": \"380015\",\n        \"shipping_address\": \"SG Highway\",\n        \"shipping_address_city\": \"Ahmedabad\",\n        \"shipping_address_state\": \"Gujarat\",\n        \"shipping_address_country\": \"India\",\n        \"shipping_address_pincode\": \"380015\"\n    },\n    {\n        \"contact_id\": 3,\n        \"contact_name\": null,\n        \"contact_email\": null,\n        \"contact_type\": null,\n        \"billing_address\": null,\n        \"billing_address_city\": null,\n        \"billing_address_state\": null,\n        \"billing_address_country\": null,\n        \"billing_address_pincode\": null,\n        \"shipping_address\": null,\n        \"shipping_address_city\": null,\n        \"shipping_address_state\": null,\n        \"shipping_address_country\": null,\n        \"shipping_address_pincode\": null\n    },\n    {\n        \"contact_id\": 4,\n        \"contact_name\": null,\n        \"contact_email\": null,\n        \"contact_type\": null,\n        \"billing_address\": null,\n        \"billing_address_city\": null,\n        \"billing_address_state\": null,\n        \"billing_address_country\": null,\n        \"billing_address_pincode\": null,\n        \"shipping_address\": null,\n        \"shipping_address_city\": null,\n        \"shipping_address_state\": null,\n        \"shipping_address_country\": null,\n        \"shipping_address_pincode\": null\n    },\n    {\n        \"contact_id\": 5,\n        \"contact_name\": null,\n        \"contact_email\": null,\n        \"contact_type\": null,\n        \"billing_address\": null,\n        \"billing_address_city\": null,\n        \"billing_address_state\": null,\n        \"billing_address_country\": null,\n        \"billing_address_pincode\": null,\n        \"shipping_address\": null,\n        \"shipping_address_city\": null,\n        \"shipping_address_state\": null,\n        \"shipping_address_country\": null,\n        \"shipping_address_pincode\": null\n    },\n    {\n        \"contact_id\": 6,\n        \"contact_name\": \"Rahul Sharma New\",\n        \"contact_email\": \"rahul@gmail.com\",\n        \"contact_type\": \"Customer\",\n        \"billing_address\": \"SG Highway\",\n        \"billing_address_city\": \"Ahmedabad\",\n        \"billing_address_state\": \"Gujarat\",\n        \"billing_address_country\": \"India\",\n        \"billing_address_pincode\": \"380015\",\n        \"shipping_address\": \"SG Highway\",\n        \"shipping_address_city\": \"Ahmedabad\",\n        \"shipping_address_state\": \"Gujarat\",\n        \"shipping_address_country\": \"India\",\n        \"shipping_address_pincode\": \"380015\"\n    }\n]"
+            }
+          ]
         },
         {
           "name": "Create Contact",
@@ -45,7 +97,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"contact_name\": \"Rahul Sharma\",\n  \"contact_email\": \"rahul@gmail.com\",\n  \"contact_type\": \"Customer\",\n  \"billing_address\": \"SG Highway\",\n  \"billing_address_city\": \"Ahmedabad\",\n  \"billing_address_state\": \"Gujarat\",\n  \"billing_address_country\": \"India\",\n  \"billing_address_pincode\": \"380015\",\n  \"shipping_address\": \"SG Highway\",\n  \"shipping_address_city\": \"Ahmedabad\",\n  \"shipping_address_state\": \"Gujarat\",\n  \"shipping_address_country\": \"India\",\n  \"shipping_address_pincode\": \"380015\"\n}",
+              "raw": "{\n  \"contact_name\": \"Rahul Sharma New\",\n  \"contact_email\": \"rahul@gmail.com\",\n  \"contact_type\": \"Customer\",\n  \"billing_address\": \"SG Highway\",\n  \"billing_address_city\": \"Ahmedabad\",\n  \"billing_address_state\": \"Gujarat\",\n  \"billing_address_country\": \"India\",\n  \"billing_address_pincode\": \"380015\",\n  \"shipping_address\": \"SG Highway\",\n  \"shipping_address_city\": \"Ahmedabad\",\n  \"shipping_address_state\": \"Gujarat\",\n  \"shipping_address_country\": \"India\",\n  \"shipping_address_pincode\": \"380015\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -62,7 +114,74 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Create Contact",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact_name\": \"Rahul Sharma New\",\n  \"contact_email\": \"rahul@gmail.com\",\n  \"contact_type\": \"Customer\",\n  \"billing_address\": \"SG Highway\",\n  \"billing_address_city\": \"Ahmedabad\",\n  \"billing_address_state\": \"Gujarat\",\n  \"billing_address_country\": \"India\",\n  \"billing_address_pincode\": \"380015\",\n  \"shipping_address\": \"SG Highway\",\n  \"shipping_address_city\": \"Ahmedabad\",\n  \"shipping_address_state\": \"Gujarat\",\n  \"shipping_address_country\": \"India\",\n  \"shipping_address_pincode\": \"380015\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/contacts",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "57"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"39-CU+UjDWN4/LQ+tGF7EAimp4URnA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:15:01 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Contact created successfully\",\n    \"contact_id\": 6\n}"
+            }
+          ]
         },
         {
           "name": "Get Single Contact",
@@ -83,7 +202,60 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Get Single Contact",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/contacts/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "456"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c8-/186coGpQjpckLjk76TGhsqNNBc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:14:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"contact_id\": 2,\n    \"contact_name\": \"Rahul Sharma Update\",\n    \"contact_email\": \"rahul@gmail.com\",\n    \"contact_type\": \"Customer\",\n    \"billing_address\": \"SG Highway\",\n    \"billing_address_city\": \"Ahmedabad\",\n    \"billing_address_state\": \"Gujarat\",\n    \"billing_address_country\": \"India\",\n    \"billing_address_pincode\": \"380015\",\n    \"shipping_address\": \"SG Highway\",\n    \"shipping_address_city\": \"Ahmedabad\",\n    \"shipping_address_state\": \"Gujarat\",\n    \"shipping_address_country\": \"India\",\n    \"shipping_address_pincode\": \"380015\"\n}"
+            }
+          ]
         },
         {
           "name": "Update Contacts",
@@ -103,17 +275,79 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/contacts/1",
+              "raw": "{{baseURL}}/contacts/2",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "contacts",
-                "1"
+                "2"
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Update Contacts",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contact_name\": \"Rahul Sharma Update\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseURL}}/contacts/2",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "42"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2a-WaqYKxv1tz6r6ghIP6ff7mTQres\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:14:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Contact updated successfully\"\n}"
+            }
+          ]
         },
         {
           "name": "Delete Contact",
@@ -131,7 +365,60 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Delete Contact",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/contacts/1",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "1"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "31"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1f-uwAVsYfVw6DHYMuEAq63Em1rEPg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:14:07 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Contact not found\"\n}"
+            }
+          ]
         },
         {
           "name": "serach by customer type",
@@ -142,24 +429,74 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseURL}}/contacts/search/type?contact_type=customer",
+              "raw": "{{baseURL}}/contacts/search/type/customer",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "contacts",
                 "search",
-                "type"
-              ],
-              "query": [
-                {
-                  "key": "contact_type",
-                  "value": "customer"
-                }
+                "type",
+                "customer"
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "serach by customer type",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/contacts/search/type/customer",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "search",
+                    "type",
+                    "customer"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "451"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c3-UIzFD5SvUJjs5sWjmORQbU+Gqps\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:13:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"contact_id\": 2,\n        \"contact_name\": \"Rahul Sharma\",\n        \"contact_email\": \"rahul@gmail.com\",\n        \"contact_type\": \"Customer\",\n        \"billing_address\": \"SG Highway\",\n        \"billing_address_city\": \"Ahmedabad\",\n        \"billing_address_state\": \"Gujarat\",\n        \"billing_address_country\": \"India\",\n        \"billing_address_pincode\": \"380015\",\n        \"shipping_address\": \"SG Highway\",\n        \"shipping_address_city\": \"Ahmedabad\",\n        \"shipping_address_state\": \"Gujarat\",\n        \"shipping_address_country\": \"India\",\n        \"shipping_address_pincode\": \"380015\"\n    }\n]"
+            }
+          ]
         },
         {
           "name": "serach by customer name",
@@ -170,24 +507,74 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseURL}}/contacts/search/contact_name?contact_name=rahul sharma",
+              "raw": "{{baseURL}}/contacts/search/contact_name/rahul sharma",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "contacts",
                 "search",
-                "contact_name"
-              ],
-              "query": [
-                {
-                  "key": "contact_name",
-                  "value": "rahul sharma"
-                }
+                "contact_name",
+                "rahul sharma"
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "serach by customer name",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/contacts/search/contact_name/rahul sharma",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "contacts",
+                    "search",
+                    "contact_name",
+                    "rahul sharma"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "451"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c3-UIzFD5SvUJjs5sWjmORQbU+Gqps\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 23 Feb 2026 17:13:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"contact_id\": 2,\n        \"contact_name\": \"Rahul Sharma\",\n        \"contact_email\": \"rahul@gmail.com\",\n        \"contact_type\": \"Customer\",\n        \"billing_address\": \"SG Highway\",\n        \"billing_address_city\": \"Ahmedabad\",\n        \"billing_address_state\": \"Gujarat\",\n        \"billing_address_country\": \"India\",\n        \"billing_address_pincode\": \"380015\",\n        \"shipping_address\": \"SG Highway\",\n        \"shipping_address_city\": \"Ahmedabad\",\n        \"shipping_address_state\": \"Gujarat\",\n        \"shipping_address_country\": \"India\",\n        \"shipping_address_pincode\": \"380015\"\n    }\n]"
+            }
+          ]
         }
       ]
     },
@@ -403,7 +790,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"purchase_order_item_quantity\": 30\n}",
+              "raw": "{\n    \"purchase_order_item_unit\": 2\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1572,7 +1959,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"invoice_item_quantity\": 20,\n  \"invoice_item_rate\": 600,\n  \"invoice_item_total\": 12000\n}",
+              "raw": "{\n  \"invoice_id\": 1000\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4601,7 +4988,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"qutoe_item_unit\": 1,\n  \"quote_item_quantity\": 5,\n  \"quote_item_rate\": 200,\n  \"quote_id\": 2,\n  \"quote_item_id\": 1\n}",
+              "raw": "{\n  \"qutoe_item_unit\": 2,\n  \"quote_item_quantity\": 5,\n  \"quote_item_rate\": 200,\n  \"quote_id\": 2,\n  \"quote_item_id\": 2\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4696,13 +5083,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseURL}}/quote_items/1",
+              "raw": "{{baseURL}}/quote_items/2",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "quote_items",
-                "1"
+                "2"
               ]
             }
           },
@@ -4771,7 +5158,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"quote_item_name\": \"Product B\"\n}",
+              "raw": "{\n  \"qutoe_item_unit\": 2\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4779,13 +5166,13 @@
               }
             },
             "url": {
-              "raw": "{{baseURL}}/quote_items/1",
+              "raw": "{{baseURL}}/quote_items/2",
               "host": [
                 "{{baseURL}}"
               ],
               "path": [
                 "quote_items",
-                "1"
+                "2"
               ]
             }
           },
