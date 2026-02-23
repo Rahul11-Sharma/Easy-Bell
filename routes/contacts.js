@@ -128,9 +128,8 @@ router.delete('/:id', (req, res) => {
 /**
  * SEARCH by contact_type
  */
-router.get('/search/type', (req, res) => {
-    const { contact_type } = req.query;
-
+router.get('/search/type/:contact_type', (req, res) => {
+    const { contact_type } = req.params;
     if (!contact_type) {
         return res.status(400).json({ message: 'contact_type query parameter is required' });
     }
@@ -148,8 +147,8 @@ router.get('/search/type', (req, res) => {
 });
 
 
-router.get('/search/contact_name', (req, res) => {
-    const { contact_name } = req.query;
+router.get('/search/contact_name/:contact_name', (req, res) => {
+    const { contact_name } = req.params;
 
     if (!contact_name) {
         return res.status(400).json({ message: 'contact_name query parameter is required' });

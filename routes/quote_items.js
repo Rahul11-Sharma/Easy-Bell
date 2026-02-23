@@ -117,16 +117,17 @@ router.get('/:id', (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const { id } = req.params;
-        const {
-            qutoe_item_unit,
-            quote_item_quantity,
-            quote_item_rate,
-            quote_id,
-            quote_item_id
-        } = req.body;
+        const data = req.body;
+        const id = req.params.id;
 
-        // ✅ Check record exists
+        if (!data || Object.keys(data).length === 0) {
+            return res.status(400).json({
+                status: false,
+                message: "No fields provided to update"
+            });
+        }
+
+        // ✅ Check if record exists
         const [existing] = await db.promise().query(
             "SELECT * FROM quote_items WHERE quote_line_item_id = ?",
             [id]
@@ -135,101 +136,84 @@ router.put('/:id', async (req, res) => {
         if (existing.length === 0) {
             return res.status(404).json({
                 status: false,
-                message: "Quote line item not found."
+                message: "Quote Item not found"
             });
         }
 
-        let fields = [];
-        let values = [];
-
-        // ✅ Dynamic updates
-        if (qutoe_item_unit !== undefined) {
-            fields.push("qutoe_item_unit = ?");
-            values.push(qutoe_item_unit);
-        }
-
-        if (quote_item_quantity !== undefined) {
-            fields.push("quote_item_quantity = ?");
-            values.push(quote_item_quantity);
-        }
-
-        if (quote_item_rate !== undefined) {
-            fields.push("quote_item_rate = ?");
-            values.push(quote_item_rate);
-        }
-
-        // ✅ Recalculate total if quantity or rate changed
-        if (quote_item_quantity !== undefined || quote_item_rate !== undefined) {
-            const currentQty = quote_item_quantity ?? existing[0].quote_item_quantity;
-            const currentRate = quote_item_rate ?? existing[0].quote_item_rate;
-            const newTotal = currentQty * currentRate;
-
-            fields.push("quote_item_total = ?");
-            values.push(newTotal);
-        }
-
-        // ✅ Validate quote_id if provided
-        if (quote_id !== undefined) {
+        // ✅ Validate purchase_order_id
+        if (data.quote_id) {
             const [quoteCheck] = await db.promise().query(
                 "SELECT quote_id FROM quotes WHERE quote_id = ?",
-                [quote_id]
+                [data.quote_id]
             );
 
             if (quoteCheck.length === 0) {
-                return res.status(404).json({
+                return res.status(400).json({
                     status: false,
-                    message: "Invalid quote_id. Quote not found."
+                    message: "Invalid quote_id. Parent Quote not found."
                 });
             }
-
-            fields.push("quote_id = ?");
-            values.push(quote_id);
         }
 
-        // ✅ Validate item_id if provided
-        if (quote_item_id !== undefined) {
+        // ✅ Validate item_id
+        if (data.quote_item_id) {
             const [itemCheck] = await db.promise().query(
                 "SELECT item_id FROM items WHERE item_id = ?",
-                [quote_item_id]
+                [data.quote_item_id]
             );
 
             if (itemCheck.length === 0) {
-                return res.status(404).json({
+                return res.status(400).json({
                     status: false,
                     message: "Invalid quote_item_id. Item not found."
                 });
             }
-
-            fields.push("quote_item_id = ?");
-            values.push(quote_item_id);
         }
 
-        if (fields.length === 0) {
-            return res.status(400).json({
-                status: false,
-                message: "No fields provided to update."
-            });
+        // ✅ Validate unit_id
+        if (data.qutoe_item_unit) {
+            const [unitCheck] = await db.promise().query(
+                "SELECT unit_id FROM units WHERE unit_id = ?",
+                [data.qutoe_item_unit]
+            );
+
+            if (unitCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid quote_item_unit. Unit not found."
+                });
+            }
+        }
+
+        // ✅ Build dynamic update query
+        let fields = [];
+        let values = [];
+
+        for (let key in data) {
+            fields.push(`${key} = ?`);
+            values.push(data[key]);
         }
 
         values.push(id);
 
-        await db.promise().query(
-            `UPDATE quote_items 
-             SET ${fields.join(", ")} 
-             WHERE quote_line_item_id = ?`,
-            values
-        );
+        const sql = `
+            UPDATE quote_items
+            SET ${fields.join(', ')}
+            WHERE quote_line_item_id = ?
+        `;
 
-        return res.json({
+        await db.promise().query(sql, values);
+
+        res.json({
             status: true,
-            message: "Quote line item updated successfully."
+            message: "Purchase Order item updated successfully"
         });
 
     } catch (error) {
-        console.error("PUT ERROR:", error);
-        return res.status(500).json({
+        console.error(error);
+        res.status(500).json({
             status: false,
-            message: "Internal server error."
+            message: "Internal server error"
         });
     }
 });
