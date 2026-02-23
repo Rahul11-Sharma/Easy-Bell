@@ -118,41 +118,107 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.put('/:id', (req, res) => {
-    const data = req.body;
+router.put('/:id', async (req, res) => {
+    try {
+        const data = req.body;
+        const id = req.params.id;
 
-    if (!data || Object.keys(data).length === 0) {
-        return res.status(400).json({
-            message: 'No fields provided to update'
-        });
-    }
-    
-    let fields = [];
-    let values = [];
-
-    for (let key in data) {
-        fields.push(`${key} = ?`);
-        values.push(data[key]);
-    }
-
-    values.push(req.params.id);
-
-    const sql = `
-        UPDATE pi_items
-        SET ${fields.join(', ')}
-        WHERE pi_line_item_id = ?
-    `;
-
-    db.query(sql, values, (err, result) => {
-        if (err) {
-            return res.status(500).json({
-                message: 'Update failed',
-                error: err
+        if (!data || Object.keys(data).length === 0) {
+            return res.status(400).json({
+                status: false,
+                message: "No fields provided to update"
             });
         }
 
-        res.json({ message: 'PI Item updated successfully' });
-    });
+        // ✅ Check if record exists
+        const [existing] = await db.promise().query(
+            "SELECT * FROM pi_items WHERE pi_line_item_id = ?",
+            [id]
+        );
+
+        if (existing.length === 0) {
+            return res.status(404).json({
+                status: false,
+                message: "PI Item not found"
+            });
+        }
+
+        // ✅ Validate purchase_order_id
+        if (data.pi_id) {
+            const [piCheck] = await db.promise().query(
+                "SELECT pi_id FROM pi WHERE pi_id = ?",
+                [data.pi_id]
+            );
+
+            if (piCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid PI. Parent PI not found."
+                });
+            }
+        }
+
+        // ✅ Validate item_id
+        if (data.pi_item_id) {
+            const [itemCheck] = await db.promise().query(
+                "SELECT item_id FROM items WHERE item_id = ?",
+                [data.pi_item_id]
+            );
+
+            if (itemCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid purchase_order_item_id. Item not found."
+                });
+            }
+        }
+
+        // ✅ Validate unit_id
+        if (data.pi_item_unit) {
+            const [unitCheck] = await db.promise().query(
+                "SELECT unit_id FROM units WHERE unit_id = ?",
+                [data.pi_item_unit]
+            );
+
+            if (unitCheck.length === 0) {
+                return res.status(400).json({
+                    status: false,
+                    message: "Invalid purchase_order_item_unit. Unit not found."
+                });
+            }
+        }
+
+        // ✅ Build dynamic update query
+        let fields = [];
+        let values = [];
+
+        for (let key in data) {
+            fields.push(`${key} = ?`);
+            values.push(data[key]);
+        }
+
+        values.push(id);
+
+        const sql = `
+            UPDATE pi_items
+            SET ${fields.join(', ')}
+            WHERE pi_line_item_id = ?
+        `;
+
+        await db.promise().query(sql, values);
+
+        res.json({
+            status: true,
+            message: "Pi item updated successfully"
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            status: false,
+            message: "Internal server error"
+        });
+    }
 });
 
 router.delete('/:id', async (req, res) => {
