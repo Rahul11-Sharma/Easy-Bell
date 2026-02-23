@@ -11,7 +11,7 @@ const quoteItemsRoutes = require('./routes/quote_items');
 const piRoutes = require('./routes/pi');
 const piItemsRoutes = require('./routes/pi_items');
 const invoicesRoutes = require('./routes/invoices');
-const invoiceItemRoutes = require('./routes/invoices');
+const invoiceItemRoutes = require('./routes/invoice_items');
 const poRoutes = require('./routes/purchase_order');
 const poItemRoutes = require('./routes/purchase_order_items');
 
